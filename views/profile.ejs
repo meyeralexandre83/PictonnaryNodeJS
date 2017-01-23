@@ -1,0 +1,27 @@
+<% var title = 'Profile' %>
+<% include head %>
+
+<body>
+<div class="container">
+
+<h2>Votre profil</h2>
+
+	<p>
+        <strong>Nom</strong>: <%= user.nom %><br>
+        <strong>Prenom</strong>: <%= user.prenom %><br>
+        <strong>Adresse email</strong>: <%= user.email %><br>
+        <strong>Date de naissance</strong>: <%= user.birthdate %><br>
+        <strong>Ville</strong>: <%= user.ville %><br>
+        <strong>Telephone</strong>: <%= user.tel %><br>
+        <strong>Site web</strong>: <%= user.website %><br>
+        <strong>Sexe</strong>: <%= user.sexe %><br>
+        <strong>Votre Couleur préférée </strong>: <%= user.couleur %><br>
+        <strong>Taille</strong>: <%= user.taille %><br>
+        <strong>Photo de profil</strong>: <img src='<%= user.profilepic %>'  alt='grosbug'/><br>
+    </p>
+    <a href="/">Retour à l'accueil</a><br>
+
+		<a href="/changeprofil">Modifier mon profil</a>
+</div>
+</body>
+</html>
