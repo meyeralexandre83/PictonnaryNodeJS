@@ -4,13 +4,23 @@
 
 		<div class = "container">
 		      <div id="listeDessin">
+							<h1> Mes dessins </h1>
 		<% for(var i=0; i<draw.length; i++) { %>
-			<li><a href="/guess?drawid=<%= draw[i].id %>">Dessin <%= i %></a></li>
+			<!-- <li><a href="/guess?drawid=<%= draw[i].id %>">Dessin <%= i %><img src="<%= draw[i].profilepic %>"  alt='grosbug' width="18%"/></a></li>
+	 -->
+
+<li>
+	<a href="/guess?drawid=<%= draw[i].id %>">Dessin <%= i %></a>
+	<!-- <img src="<%= draw[i].images %>"  alt="grosbug" width="18%"/> -->
+</li>
+
+	<% } %>
+	<h1> Mes demandes en cours : </h1>
+
+<% } %>
 
 
-	</div>
-	</div>
-
-	<% }} %>
+</div>
+</div>
 </body>
 <html>

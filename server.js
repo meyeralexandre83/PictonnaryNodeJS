@@ -21,7 +21,8 @@ app.use(morgan('combined')); // Active le middleware de logging
 app.use(passport.initialize());
 app.use(flash());
 app.use(passport.session());
-app.use(express.static('public'));
+// app.use(express.static('public'));
+
 app.use('/static', express.static(__dirname + '/public'));
 
 require('./config/passport')(passport);
@@ -118,9 +119,13 @@ app.post('/paint',function(req, res)
     draw.u_id = req.user.id;
     draw.commandes = req.body.drawingCommands;
     draw.images = req.body.picture;
-    //console.log(draw.images);
+    draw.destinataire=req.body.dest;
+    draw.motdev=req.body.mot;
 
-    var insertquery = { u_id : draw.u_id, commandes : draw.commandes, images : draw.images };
+    // console.log(req.body.mot);
+    // console.log(req.body.dest);
+
+    var insertquery = { u_id : draw.u_id, commandes : draw.commandes, images : draw.images , Destinataire : draw.destinataire, Word : draw.motdev};
     console.log(insertquery);
     connection.query('INSERT INTO drawings SET ?', insertquery, function(err, rows)
     {
@@ -134,6 +139,23 @@ app.post('/paint',function(req, res)
             res.redirect('/');
         }
     });
+
+
+    // var insertdbhistorique={ Emetteur : draw.u_id,  Destinataire : draw.destinataire, photo : draw.images ,};
+    //
+    // connection.query('INSERT INTO historique SET ?', insertdbhistorique, function(err, rows)
+    // {
+    //     if (err)
+    //     {
+    //         res.writeHead(200);
+    //         res.end('error');
+    //     }
+    //     else
+    //     {
+    //         res.redirect('/');
+    //     }
+    // });
+
 });
 
 ////--------------------------------------------------------------------/////

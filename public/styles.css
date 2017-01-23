@@ -1,6 +1,8 @@
 body
 {
-	background-color : black;
+	 background: url("background.jpg");
+	 
+
 }
 
 
@@ -11,4 +13,12 @@ span
 header
 {
 	float:right;
+}
+
+.container
+{
+	text-align: center;
+	background-color :#ebf29d;
+	border-radius: 50px;
+	color: black;
 }

@@ -1,10 +1,12 @@
+
+
 <% var title = 'Profile' %>
 <% include head %>
 
 <body>
 <div class="container">
 
-<h2>Votre profil</h2>
+<h2>Votre profil</h2><img src='<%= user.profilepic %>'  alt='grosbug'/><br>
 
 	<p>
         <strong>Nom</strong>: <%= user.nom %><br>
@@ -17,11 +19,11 @@
         <strong>Sexe</strong>: <%= user.sexe %><br>
         <strong>Votre Couleur préférée </strong>: <%= user.couleur %><br>
         <strong>Taille</strong>: <%= user.taille %><br>
-        <strong>Photo de profil</strong>: <img src='<%= user.profilepic %>'  alt='grosbug'/><br>
-    </p>
-    <a href="/">Retour à l'accueil</a><br>
 
-		<a href="/changeprofil">Modifier mon profil</a>
+    </p>
+    <a href="/">Retour à l'accueil</a><br><br>
+
+		<a href="/changeprofil">Modifier mon profil</a><br><br>
 </div>
 </body>
 </html>

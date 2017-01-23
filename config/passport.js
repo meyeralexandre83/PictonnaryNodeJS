@@ -127,7 +127,7 @@ module.exports = function(passport) // on exporte les fonctions pour être utili
 				newUserMysql.profilepic = req.body.profilepic;
 				//console.log (	newUserMysql.profilepic);
 
-				var insertQuery = {email: email, password: password, nom: req.body.nom, prenom: req.body.prenom, tel: req.body.telephone, website: req.body.siteweb, sexe: req.body.sexe, birthdate: req.body.birthdate, ville: req.body.ville, taille: req.body.taille, couleur: req.body.couleur.substring(1,req.body.couleur.length), profilepic: req.body.profilepicfile};
+				var insertQuery = {email: email, password: password, nom: req.body.nom, prenom: req.body.prenom, tel: req.body.telephone, website: req.body.siteweb, sexe: req.body.sexe, birthdate: req.body.birthdate, ville: req.body.ville, taille: req.body.taille, couleur: req.body.couleur.substring(1,req.body.couleur.length), profilepic: req.body.profilepic};
 				console.log(insertQuery);
 				connection.query('INSERT INTO users SET ?', insertQuery,function(err,rows)
 				{
@@ -225,13 +225,13 @@ function(req, email, password, done)
             }
 			 if (!rows.length)
 			 {
-                return done(null, false, req.flash('loginMessage', 'No user found.'));
+                return done(null, false, req.flash('loginMessage', 'Pas de user trouve.'));
             }
 
 
             if (!( rows[0].password == password))
             {
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+                return done(null, false, req.flash('loginMessage', 'Mauvais password'));
             }
 
             return done(null, rows[0]);
