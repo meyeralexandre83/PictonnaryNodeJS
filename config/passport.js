@@ -234,8 +234,6 @@ function(req, email, password, done)
                 return done(null, false, req.flash('loginMessage', 'Mauvais password'));
             }
 
-
-
 						console.log("rows :"+rows[0].status);
             return done(null, rows[0]);
 
