@@ -33,11 +33,11 @@ lpsil-web/
 
 * Lancer votre serveur mysql et inserer le fichier pictionnary.sql dans votre sgbd
 * Dans le dossier website ouvrir une fenetre cmd et executer la commande
- ```javascript
+ ```
   npm install
    ```
 * Pour lancer le serveur executer la commande
-```javascript
+```
  npm start
   ```
 * Ouvrir votre navigateur et taper dans la barre d'adresse  http://localhost:1313/ dans la barre d'adresse
