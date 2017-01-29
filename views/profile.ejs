@@ -1,7 +1,29 @@
 
-
 <% var title = 'Profile' %>
 <% include head %>
+
+
+<script>
+var mysql = require('mysql');
+
+var connection = mysql.createConnection( // Connection à la base de données
+{
+				  host     : 'localhost',
+				  port     : '3306',
+				  user     : 'root',
+				  password : '',
+				  database: 'pictionnary'
+});
+
+connection.query("select * from users ",function(err,rows)
+{
+  if(err) throw err;
+  console.log('Data received from Db:\n');
+  console.log(rows);
+});
+
+
+</script>
 
 <body>
 <div class="container">

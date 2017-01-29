@@ -29,12 +29,19 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/paint">DRAW !<span class="sr-only">(current)</span></a></li>
+
 
 
 	<% if (user != '') { %>
-		 <li class="active"><a href="/logout">Déconnexion<span class="sr-only">(current)</span></a></li>
-				 			Bonjour <%= user.prenom %>,<a href="/profile"><img src='<%= user.profilepic %>'  alt='grosbug' width="18%"/></a>
+
+				 			Bonjour <%= user.prenom %>
+							<% if (user.profilepic!='') { %>
+							<a href="/profile"><img src='<%= user.profilepic %>'  alt='grosbug' width="11%"/></a>
+					   		<%}%>
+							 <li class="active"><a href="/profile">Mon profil<span class="sr-only">(current)</span></a></li>
+							 <li class="active"><a href="/paint">Dessiner !<span class="sr-only">(current)</span></a></li>
+							 <li class="active"><a href="/">Mes dessins<span class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="/logout">Déconnexion<span class="sr-only">(current)</span></a></li>
 
 <% } else{ %>
 	 <li class="active"><a href="/signup">Inscription<span class="sr-only">(current)</span></a></li>

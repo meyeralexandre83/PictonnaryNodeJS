@@ -1,9 +1,11 @@
+<% var title = 'Dessiner' %>
+<% include head %>
+
 <!doctype html>
 <html>
 <head>
     <meta charset=utf-8 />
     <title>Pictionnary</title>
-    <link rel="stylesheet" media="screen" href="css/styles.css" >
     <script>
 
         // les quatre tailles de pinceau possible.
@@ -126,6 +128,7 @@
 </head>
 
 <body>
+<div id="containercanvas"><br>
 <canvas id="myCanvas"></canvas>
 
 <form name="tools" action="/paint" method="post">
@@ -138,14 +141,14 @@
     <input id="restart" type="button" value="Recommencer"/>
     <input type="hidden" id="drawingCommands" name="drawingCommands"/>
 
-    
+
     <input type="hidden" id="picture" name="picture"/>
     <input type="text" id="mot" name="mot" placeholder="Mot à faire deviner" required />
     <input type="text" id="dest" name="dest" placeholder="Destinataire" required />
 
 
     <input id="validate" type="submit" value="Valider"/>
-</form>
-
+</form><br>
+</div>
 </body>
 </html>

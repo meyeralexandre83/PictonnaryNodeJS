@@ -108,9 +108,14 @@ app.get('/login', function(req, res)
 
 
  ////--------------PAGE PAINT ------------------------------------------///
-app.get('/paint', isLoggedIn,function(req, res)
+// app.get('/paint', isLoggedIn,function(req, res)
+// {
+//     res.render('paint');
+// });
+
+app.get('/paint', isLoggedIn, function(req, res)
 {
-    res.render('paint');
+	res.render('paint', { user : req.user });
 });
 
 app.post('/paint',function(req, res)
@@ -136,25 +141,26 @@ app.post('/paint',function(req, res)
         }
         else
         {
+          var insertdbhistorique={ Emetteur : draw.u_id,  Destinataire : draw.destinataire, photo : draw.images ,};
+          console.log(insertdbhistorique);
+          connection.query('INSERT INTO historique SET ?', insertdbhistorique, function(err, rows)
+          {
+
+            if (err)
+            {
+                res.writeHead(200);
+                res.end('error');
+            }
+            else
+            {
             res.redirect('/');
-        }
+          }
+        });
+      }
+
+
     });
 
-
-    // var insertdbhistorique={ Emetteur : draw.u_id,  Destinataire : draw.destinataire, photo : draw.images ,};
-    //
-    // connection.query('INSERT INTO historique SET ?', insertdbhistorique, function(err, rows)
-    // {
-    //     if (err)
-    //     {
-    //         res.writeHead(200);
-    //         res.end('error');
-    //     }
-    //     else
-    //     {
-    //         res.redirect('/');
-    //     }
-    // });
 
 });
 
@@ -183,6 +189,11 @@ app.get('/guess', isLoggedIn,function(req, res)
             }
         });
 })
+
+app.get('/guess', isLoggedIn, function(req, res)
+{
+ res.render('guess', { user : req.user });
+});
 ////--------------------------------------------------------------------/////
 
 
