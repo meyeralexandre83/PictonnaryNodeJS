@@ -36,9 +36,8 @@ lpsil-web/
  ```javascript
   npm install
    ```
-* Executer ensuite
+* Pour lancer le serveur executer la commande
 ```javascript
  npm start
   ```
-  pour lancer le serveur
 * Ouvrir votre navigateur et taper dans la barre d'adresse  http://localhost:1313/ dans la barre d'adresse
