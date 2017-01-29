@@ -29,16 +29,16 @@ lpsil-web/
 #### Package.json
 
 ##### Installation des packages
-```javascript
-npm install
-```
 
-##### Lancement du projet
-```javascript
-npm start
-```
 
-1)Lancer votre serveur mysql et inserer le fichier pictionnary.sql dans votre sgbd
-2) Dans le dossier website ouvrir une fenetre cmd et executer la commande npm install
-3) Executer ensuite npm start pour lancer le serveur
-4) Ouvrir votre navigateur et taper dans la barre d'adresse  http://localhost:1313/ dans la barre d'adresse
+* Lancer votre serveur mysql et inserer le fichier pictionnary.sql dans votre sgbd
+* Dans le dossier website ouvrir une fenetre cmd et executer la commande
+ ```javascript
+  npm install
+   ```
+* Executer ensuite
+```javascript
+ npm start
+  ```
+  pour lancer le serveur
+* Ouvrir votre navigateur et taper dans la barre d'adresse  http://localhost:1313/ dans la barre d'adresse
