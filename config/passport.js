@@ -127,7 +127,7 @@ module.exports = function(passport) // on exporte les fonctions pour être utili
 				newUserMysql.profilepic = req.body.profilepic;
 				//console.log (	newUserMysql.profilepic);
 
-				var insertQuery = {email: email, password: password, nom: req.body.nom, prenom: req.body.prenom, tel: req.body.telephone, website: req.body.siteweb, sexe: req.body.sexe, birthdate: req.body.birthdate, ville: req.body.ville, taille: req.body.taille, couleur: req.body.couleur.substring(1,req.body.couleur.length), profilepic: req.body.profilepic};
+				var insertQuery = {email: email, password: password, nom: req.body.nom, prenom: req.body.prenom, tel: req.body.telephone, website: req.body.siteweb, sexe: req.body.sexe, birthdate: req.body.birthdate, ville: req.body.ville, taille: req.body.taille, couleur: req.body.couleur.substring(1,req.body.couleur.length), profilepic: req.body.profilepic, status : "client"};
 				console.log(insertQuery);
 				connection.query('INSERT INTO users SET ?', insertQuery,function(err,rows)
 				{
@@ -159,7 +159,7 @@ passport.use('local-changeprofil', new LocalStrategy(
 function(req, email, password, done)
 {
 
-    console.log("changement du profil");
+  console.log("changement du profil");
 
 	connection.query("select * from users where email = '"+email+"'",function(err,rows){
 	console.log(rows);
@@ -222,11 +222,11 @@ function(req, email, password, done)
 			if (err)
 			{
                 return done(err);
-            }
+      }
 			 if (!rows.length)
 			 {
                 return done(null, false, req.flash('loginMessage', 'Pas de user trouve.'));
-            }
+       }
 
 
             if (!( rows[0].password == password))
@@ -234,6 +234,9 @@ function(req, email, password, done)
                 return done(null, false, req.flash('loginMessage', 'Mauvais password'));
             }
 
+
+
+						console.log("rows :"+rows[0].status);
             return done(null, rows[0]);
 
 		});

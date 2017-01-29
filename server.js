@@ -90,6 +90,7 @@ app.get('/login', function(req, res)
 
  app.post('/changeprofil', passport.authenticate('local-changeprofil',
  {
+
     successRedirect : '/profile', // On redirige l'utilisateur à sa page de profil pour qu'il voit que les informations ont bien été changé
     failureRedirect : '/changeprofil', // On redirige sur la meme page si il y a des erreurs
     failureFlash : true //On autorise les messages flash
@@ -169,8 +170,15 @@ app.post('/paint',function(req, res)
 
 
  ////--------------PAGE GUESS ------------------------------------------///
+
+ // app.get('/guess', isLoggedIn,function(req, res)
+ // {
+ // res.render('guess', { user : req.user });
+ // });
+
 app.get('/guess', isLoggedIn,function(req, res)
 {
+
     var query  = url.parse(req.url,true).query;
     console.log(query['drawid']);
     console.log(query);
@@ -186,14 +194,12 @@ app.get('/guess', isLoggedIn,function(req, res)
                 console.log(rows[0].commandes);
                 console.log(rows[0]);
                 res.render('guess', { commandes : rows[0].commandes });
+
             }
         });
-})
-
-app.get('/guess', isLoggedIn, function(req, res)
-{
- res.render('guess', { user : req.user });
 });
+
+
 ////--------------------------------------------------------------------/////
 
 
@@ -203,8 +209,6 @@ app.get('/profile', isLoggedIn, function(req, res)
 {
 	res.render('profile', { user : req.user });
 });
-
-
 
 
 ////--------------------------------------------------------------------/////

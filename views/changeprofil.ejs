@@ -5,19 +5,18 @@
 <form method="post" class="form-horizontal" action="/changeprofil" >
     <!-- c'est quoi les attributs action et method ? action renvoie à la page qui va traiter les données envoyées et method précise si on va traiter beaucoup on peu d'information-->
     <!-- qu'y a-t-il d'autre comme possiblité que post pour l'attribut method ? il existe get qui traite peu d'information-->
-    <span class="form_hint">Les champs obligatoires sont indiqués par *</span>
 
 
 		<div class="form-group">
             <label class="control-label col-sm-2" for="telephone">Téléphone :</label>
 			<div class="col-sm-10">
-            <input class="form-control" type="tel" name="telephone" id="telephone" value="<%= user.tel %>"/>
+            <input class="form-control" type="tel" name="telephone" id="telephone" value="<%= user.tel %>" placeholder="Insérer votre numéro de telephone"/>
 			</div>
 		</div>
 		<div class="form-group">
             <label class="control-label col-sm-2" for="siteweb">Site Web :</label>
 			<div class="col-sm-10">
-            <input class="form-control" type="url" name="siteweb" id="siteweb"/>
+            <input class="form-control" type="text" name="siteweb" id="siteweb" placeholder="Insérer votre site Web"/>
 			</div>
 		</div>
 
@@ -25,7 +24,7 @@
 		<div class="form-group">
             <label class="control-label col-sm-2" for="ville">Ville :</label>
 			<div class="col-sm-10">
-            <input class="form-control" type="text" name="ville" id="ville"/>
+            <input class="form-control" type="text" name="ville" id="ville" placeholder="Inserer votre ville"/>
 			</div>
 		</div>
 
@@ -42,7 +41,7 @@
 			</div>
             <!-- l'input profilepic va contenir le chemin vers l'image sur l'ordinateur du client -->
             <!-- on ne veut pas envoyer cette info avec le formulaire, donc il n'y a pas d'attribut name -->
-            <span class="form_hint">Choisissez une image.</span>
+
 			<div class="col-sm-10">
             <input class="form-control" type="hidden" name="profilepic" id="profilepic"/>
 			</div>

@@ -28,7 +28,11 @@ connection.query("select * from users ",function(err,rows)
 <body>
 <div class="container">
 
-<h2>Votre profil</h2><img src='<%= user.profilepic %>'  alt='grosbug'/><br>
+<h2>Votre profil</h2>
+<% if (user.profilepic!='') { %>
+<a href="/profile"><img src='<%= user.profilepic %>'  alt='grosbug' width="11%"/></a>
+	<%}%>
+
 
 	<p>
         <strong>Nom</strong>: <%= user.nom %><br>
@@ -39,8 +43,9 @@ connection.query("select * from users ",function(err,rows)
         <strong>Telephone</strong>: <%= user.tel %><br>
         <strong>Site web</strong>: <%= user.website %><br>
         <strong>Sexe</strong>: <%= user.sexe %><br>
-        <strong>Votre Couleur préférée </strong>: <%= user.couleur %><br>
+        <strong>Votre Couleur préférée : <input disable type="color" value="<%= user.couleur %>" name="textcolor"><br>
         <strong>Taille</strong>: <%= user.taille %><br>
+
 
     </p>
     <a href="/">Retour à l'accueil</a><br><br>
