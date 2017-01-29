@@ -38,3 +38,9 @@ header
 		border: 1px solid black;
 
 }
+
+table,tr,td
+{
+	border : 1px solid black;
+  margin-left: 20em;
+}

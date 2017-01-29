@@ -38,6 +38,25 @@ var connection = mysql.createConnection(
                   database: 'pictionnary'
 });
 
+
+
+app.get('/historique', isLoggedIn, function(req, res)
+{
+
+ connection.query('SELECT * FROM historique WHERE 1', function(err, rows, fields) {
+       if (err) throw err;
+       else
+       {
+         for (var i = 0; i < rows.length; i++) {
+           result = rows; //je stock le résultat dans une variable pour l'envoyer à la vue
+      }
+
+     res.render('historique', { result : result,  user : req.user });
+     }
+
+     });
+ });
+
 logger.info('server start'); // Affichage dans la console que le serveur est lancé
 
 // route
@@ -209,6 +228,14 @@ app.get('/profile', isLoggedIn, function(req, res)
 {
 	res.render('profile', { user : req.user });
 });
+
+// Envoi des variables session à la page d'historique
+
+app.get('/historique', isLoggedIn, function(req, res)
+{
+	res.render('historique', { user : req.user });
+});
+
 
 
 ////--------------------------------------------------------------------/////

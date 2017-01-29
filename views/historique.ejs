@@ -1,0 +1,20 @@
+<% var title = 'Formulaire login' %>
+<% include head %>
+
+
+<div class="container">
+<h2>Tableau récapitulatif de tous les dessins</h2>
+
+<table>
+    <% for(var i = 0 ; i < result.length ; i++) { %>
+      <tr>
+        <!-- <td>ID : <%= result[i].id %></td> -->
+        <td> Emetteur : <%= result[i].Emetteur %></td>
+        <td>Destinataire : <%= result[i].Destinataire %></td>
+        <td>  <img src="<%= result[i].photo %>"/></td>
+        <td> <button>Supprimer</button>
+      </tr>
+
+        <% } %>
+</table>
+</div>
